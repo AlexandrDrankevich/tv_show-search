@@ -12,7 +12,6 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//button[text()='Login']")
     private WebElement loginButton;
 
-
     public AuthorizedHomePage authorize(User user) {
         inputUserName.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
