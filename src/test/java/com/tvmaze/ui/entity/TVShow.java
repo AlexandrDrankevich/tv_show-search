@@ -21,6 +21,6 @@ public class TVShow {
     @Override
     public String toString() {
         return "Show{ name: " + showName + " " +
-                ", episode: " + episodeName + " " +'}';
+                ", episode: " + episodeName + " " + '}';
     }
 }

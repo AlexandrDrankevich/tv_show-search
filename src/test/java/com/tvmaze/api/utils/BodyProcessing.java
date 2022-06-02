@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BodyProcessing {
-
-
     private static List<String> getTVShowNameList(String body) {
         List<String> tvShowList = new ArrayList<>();
         if (body.startsWith("[")) {
