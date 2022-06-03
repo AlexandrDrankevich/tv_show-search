@@ -1,6 +1,8 @@
 package com.tvmaze.api.utils;
 
 import com.tvmaze.api.client.CustomClient;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -8,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BodyProcessing {
-    private static List<String> getTVShowNameList(String body) {
+    @Step("Create TvShowList")
+    @Attachment
+    private static List<String> createTVShowNameList(String body) {
         List<String> tvShowList = new ArrayList<>();
         if (body.startsWith("[")) {
             JSONArray jsonArray = new JSONArray(body);
@@ -27,7 +31,9 @@ public class BodyProcessing {
         return tvShowList;
     }
 
+    @Step("is response contains TVShow: {0}")
+    @Attachment
     public static boolean isResponseContainsTVShow(String tvShow, String body) {
-        return getTVShowNameList(body).stream().anyMatch(s -> s.contains(tvShow));
+        return createTVShowNameList(body).stream().anyMatch(s -> s.contains(tvShow));
     }
 }

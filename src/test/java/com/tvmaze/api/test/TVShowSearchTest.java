@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TVShowSearchTest extends AbstractTest {
-    @Test(dataProvider = "partOfName",dataProviderClass = DataClass.class)
+    @Test(description = "API Search test ",dataProvider = "partOfName",dataProviderClass = DataClass.class)
     public void testGetSearchResponseContainsTVShow(String tvShowPartOfName) {
         String url = "https://api.tvmaze.com/search/shows?q=" + tvShowPartOfName;
         client.sendGet(url);

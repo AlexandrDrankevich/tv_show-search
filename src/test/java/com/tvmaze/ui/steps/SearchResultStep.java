@@ -3,6 +3,8 @@ package com.tvmaze.ui.steps;
 import com.tvmaze.ui.entity.TVShow;
 import com.tvmaze.ui.pages.AuthorizedHomePage;
 import com.tvmaze.ui.pages.SearchResultPage;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,8 +13,9 @@ import java.util.List;
 
 public class SearchResultStep extends SearchResultPage {
     List<TVShow> tvShowList;
-    String expectedSearchResultMassage="Pardon us, but no shows or people matching your query were found";
+    String expectedSearchResultMassage = "Pardon us, but no shows or people matching your query were found";
 
+    @Step("Search request:  {0}")
     public SearchResultStep openSearchResultByRequest(String searchRequest) {
         new AuthorizedHomePage()
                 .typeSearchRequestAndSend(searchRequest);
@@ -20,6 +23,8 @@ public class SearchResultStep extends SearchResultPage {
         return this;
     }
 
+    @Step(" Create search ShowList ")
+    @Attachment
     public List<TVShow> createSearchResultList() {
         String episodeName;
         tvShowList = new ArrayList<>();
@@ -36,14 +41,17 @@ public class SearchResultStep extends SearchResultPage {
         return tvShowList;
     }
 
+    @Step("is Search result contains TVShow: {0}")
+    @Attachment
     public boolean isSearchResultListContainsTVShow(String tvShow) {
         if (tvShowList == null) {
             tvShowList = createSearchResultList();
         }
         return tvShowList.stream().anyMatch(s -> s.getShowName().contains(tvShow));
     }
+
     public boolean isSearchResultContainsExpectedMessage() {
-        logger.info("Message: "+ searchResultMessageField.getText());
+        logger.info("Message: " + searchResultMessageField.getText());
         return searchResultMessageField.getText().contains(expectedSearchResultMassage);
     }
 }
