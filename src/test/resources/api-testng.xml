@@ -6,6 +6,7 @@
             <class name="com.tvmaze.api.test.TVShowSearchTest"/>
             <class name="com.tvmaze.api.test.TVShowSingleSearchTest"/>
             <class name="com.tvmaze.api.test.TVShowCalendarTest"/>
+            <class name="com.tvmaze.api.test.ArtistDataBaseTest"/>
         </classes>
     </test>
 </suite>
