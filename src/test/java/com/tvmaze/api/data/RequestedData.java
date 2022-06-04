@@ -1,8 +1,8 @@
-package com.tvmaze.api.test;
+package com.tvmaze.api.data;
 
 import org.testng.annotations.DataProvider;
 
-public class DataClass {
+public class RequestedData {
     @DataProvider(name = "calendarDateAndTVShowName")
     public static Object[][] provideDateAndName() {
         return new Object[][]{{"2022-05-25", "The Flash"}, {"2022-04-07", "Walker"}, {"2022-06-12", "Barry"}};
