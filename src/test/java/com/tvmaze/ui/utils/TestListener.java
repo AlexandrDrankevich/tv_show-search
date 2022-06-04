@@ -1,6 +1,7 @@
 package com.tvmaze.ui.utils;
 
 import com.tvmaze.ui.driver.DriverSingleton;
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -56,6 +57,7 @@ public class TestListener implements ITestListener {
                     ".//target/screenshots/"
                             + getCurrentTimeAsString() +
                             ".png"));
+            Allure.addAttachment("Screenshot",FileUtils.openInputStream(screenCapture));
         } catch (IOException e) {
             log.error("Failed to save screenshot: " + e.getLocalizedMessage());
         }
