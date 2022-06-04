@@ -3,6 +3,7 @@ package com.tvmaze.ui.steps;
 import com.tvmaze.ui.entity.TVShow;
 import com.tvmaze.ui.pages.AuthorizedHomePage;
 import com.tvmaze.ui.pages.SearchResultPage;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -51,8 +52,10 @@ public class SearchResultStep extends SearchResultPage {
     }
 
     public boolean isSearchResultContainsExpectedMessage() {
-        logger.info("Message: " + searchResultMessageField.getText());
-        return searchResultMessageField.getText().contains(expectedSearchResultMassage);
+        String message=searchResultMessageField.getText();
+        logger.info("Message: " + message);
+        Allure.addAttachment("Search result message ",message);
+        return message.contains(expectedSearchResultMassage);
     }
 }
 
