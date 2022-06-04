@@ -1,5 +1,6 @@
 package com.tvmaze.api.client;
 
+import com.tvmaze.api.entity.Artist;
 import com.tvmaze.api.utils.BodyProcessing;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
@@ -61,6 +62,9 @@ public class CustomClient {
 
     public boolean isResponseContainsTVShow(String tvShow) {
         return BodyProcessing.isResponseContainsTVShow(tvShow, getBody());
+    }
+    public boolean isResponseContainsArtist(Artist artist) {
+        return BodyProcessing.isResponseContainsArtist(artist, getBody());
     }
 
     public void closeClient() {

@@ -17,7 +17,6 @@ public class TVShow {
         return episodeName;
     }
 
-
     @Override
     public String toString() {
         return "Show{ name: " + showName + " " +

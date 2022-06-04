@@ -1,5 +1,6 @@
 package com.tvmaze.api.data;
 
+import com.tvmaze.api.entity.Artist;
 import org.testng.annotations.DataProvider;
 
 public class RequestedData {
@@ -16,5 +17,12 @@ public class RequestedData {
     @DataProvider(name = "tvShowName")
     public static Object[] provideTVShowName() {
         return new Object[]{"Flash", "Walker", "Barry"};
+    }
+
+    @DataProvider(name = "artist")
+    public static Object[] provideArtist() {
+        return new Object[]{new Artist("Dean Norris", "1963-04-08","Male","United States"),
+        new Artist("Mike Vogel","1979-07-17","Male","United States"),
+        new Artist("Rachelle Lefevre","1979-02-01","Female","Canada")};
     }
 }
